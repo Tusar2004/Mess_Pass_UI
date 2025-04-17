@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mess Pass UI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        .zoom-in {
+            animation: zoomIn 5s ease-in-out infinite;
+        }
+    </style>
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const date = now.toLocaleDateString();
+            const time = now.toLocaleTimeString();
+            document.getElementById('current-date').textContent = date;
+            document.getElementById('current-time').textContent = time;
+        }
+
+        setInterval(updateTime, 1000); // Update every second
+        window.onload = updateTime; // Initialize on page load
+    </script>
+</head>
+<body class="bg-gray-200 flex justify-center items-center min-h-screen p-4">
+    <div class="bg-white max-w-sm w-full rounded-2xl shadow-lg p-4 border border-gray-700">
+        <div class="flex items-center relative pb-4 border-b">
+            <img src="mess.image.gif" alt="Profile" class="w-24 h-24 rounded-full border-2 border-black">
+            <div class="ml-4">
+                <h2 class="text-2xl font-bold">BreakFast</h2>
+                <h3 class="text-lg font-semibold">12315905</h3>
+                <h3 class="text-lg font-semibold">Tusar Goswami</h3>
+                <h3 class="text-lg font-semibold">Mess BH-4</h3>
+            </div>
+            <div class="absolute top-2 right-2 bg-gray-300 text-gray-800 text-sm font-bold px-3 py-1 rounded-full">
+                26
+            </div>
+        </div>
+        <div class="mt-3 text-gray-700 text-center">
+            <p class="text-lg font-semibold text-gray-500">
+                P132: B.Tech. (Computer Science and Engineering) (2023)
+            </p>
+        </div>
+        <div class="mt-6 flex justify-between text-md font-medium text-gray-700 border-t pt-2">
+            <p id="current-date"></p>
+            <p id="current-time"></p>
+        </div>
+        <div class="mt-3 text-center text-green-600 font-bold text-xl">
+            Meal Approved
+        </div>
+        <div class="mt-20 bg-gray-100 p-20 flex justify-center border-8 border-red-700">
+            <div class="flex items-center space-x-4 border-4 border-black px-10 py-2 rounded-full bg-white zoom-in">
+                <span class="text-green-600 text-2xl font-bold">✅</span>
+                <span class="text-green-700 text-2xl font-bold">ACCEPTED</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
